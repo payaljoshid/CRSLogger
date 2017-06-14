@@ -1,0 +1,95 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<div ng-app="displayPrice" ng-controller="displayPriceCtrl"> 
+<br/><br/>
+      <style>
+#page {
+    width: 1200px;
+    margin: 0px auto -1px auto;
+    padding: 15px;
+}
+.InsideContent{
+    display:inline-block;
+}
+}
+#divTable {
+    width: 800px;
+    body{
+      background-color: 92eec2;
+    }
+}
+</style>
+
+<br/>
+<br/>
+<div id="page">
+ <div id="divTable" class="InsideContent">
+     <div><a ng-click="navigateToDashboard()">Dashboard</a></div>
+  </div>
+  <div id="divTable" class="InsideContent">
+    <div><p>/</p></div>
+
+  </div>
+  <div id="divTable" class="InsideContent">
+     <div><a ng-click="navigateToPrice()">Price</a></div>
+  </div>
+</div>
+</div>
+       
+  <table border="1" class="table table-bordered">
+    <tr ng-repeat="item in data1 | limitTo:1">
+  <th ng-repeat="(key, value) in item"> {{key | uppercase }}</th></tr>
+  <tr ng-repeat="item in data1">
+  <td ng-repeat="(key,value) in item">
+  {{value}}
+  
+</td>
+
+<td ng-repeat="(key,value) in item">
+  {{value}}
+</td>
+
+<table border="1" class="table table-bordered">
+<tr ng-repeat="item in data1.price | limitTo:1">
+  <th ng-repeat="(key, value) in item"> {{key | uppercase }}</th></tr>
+  <tr ng-repeat="item in data1.price">
+  <td ng-repeat="(key,value) in item">
+  {{value}}
+</td>
+
+</tr>
+</table>
+
+
+   <!--<tr ng-repeat="x in data1">
+   <td>{{x.date}}</td>
+   <td>{{x.reservationId}}</td>
+   <td>{{x.revisionId}}</td>
+   <td>{{x.hotelId}}</td>
+   <td>{{x.roomId}}</td>
+   <td>{{x.occupancy}}</td>
+   <td>{{x.uniqueId}}</td>
+   <td>{{x.status}}</td>
+   <td>{{x.type}}</td>
+   <td>{{x.createdDate}}</td>
+</tr>-->
+   </table>  
+  
+</div>
+<script>
+var log = [];
+angular.forEach(data1, function(value, key) {
+  console.log(key + ': ' + value);
+});
+</script>
+
+</body>
+
+
+
+
+
+  

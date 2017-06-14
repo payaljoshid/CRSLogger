@@ -1,0 +1,135 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+#page {
+    width: 1200px;
+    margin: 0px auto -1px auto;
+    padding: 15px;
+}
+.InsideContent{
+    display:inline-block;
+}
+}
+#divTable {
+    width: 800px;
+    body{
+      background-color: 92eec2;
+    }
+}
+body{
+  background-color:     #66b7b0    ;
+}
+.datepicker.dropdown-menu {
+  width: 250px;
+  height: 250px;
+  button {
+    outline: none;
+    border: 0px;
+  }
+  tbody {
+    height: 180px;
+  }
+  tbody button {
+    padding: 6px;
+  }
+  &.datepicker-mode-1, &.datepicker-mode-2 {
+    tbody button {
+      height: 65px;
+    }
+  }
+}
+
+.timepicker.dropdown-menu {
+  padding: 0 4px;
+  button {
+    outline: none;
+    border: 0px;
+  }
+  tbody button {
+    padding: 6px;
+  }
+}
+table{
+  border-color: black;
+}
+</style>
+<body background="/home/swathi/Pictures/blue.jpg">
+<form ng-controller="PriceCtrl"> 
+<br/>
+<br/>
+<div>
+<div id="page">
+ <div id="divTable" class="InsideContent">
+     <div><a ng-click="navigateToDashboard()">Dashboard</a></div>
+  </div>
+  <div id="divTable" class="InsideContent">
+    <div><p>/</p></div>
+
+  </div>
+  <div id="divTable" class="InsideContent">
+     <div><a ng-href="">Price</a></div>
+  </div>
+</div></div>
+
+<div>     
+                     <label class="control-label"> Hotel ID </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <label class="control-label"> Room ID </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     <label class="control-label"> Rateplan ID </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     
+                      <label class="control-label"><i class="fa fa-calendar"></i> Start Date </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <label class="control-label"><i class="fa fa-calendar"></i> End Date </label>
+  </div>
+<div>
+            <input type="text" ng-model="filters.hotelId" id="hotelid" style="width: 100px;">
+ <input type="text" ng-model="filters.roomId" id="roomId" style="width: 100px;">
+     <input type="text" ng-model="filters.rateplanId" id="rateplanId" style="width: 100px;">
+       
+    <input ng-model="filters.startDate" data-date-format="dd-MM-yyyy" data-date-type="number" data-min-date="02-10-14" data-max-date="today" data-autoclose="1" name="date2" bs-datepicker type="text" style="width: 150px;">
+    <input ng-model="filters.endDate" data-date-format="dd-MM-yyyy" data-date-type="number" data-min-date="{{filters.startDate}}" data-max-date="22-01-50" data-autoclose="1" name="date2" bs-datepicker type="text" style="width: 150px;">
+  </div>
+  <br/>          
+                    <div id="divTable" class="input-group-btn search-panel">
+                    <div class="span1">
+                        <a ng-click="displaypricedetails()" class="btn btn-primary" ng-disabled="!(!!filters.hotelId || !!filters.roomId  || !!filters.rateplanId || !!filters.reservationId || !!filters.startDate || !!filters.endDate)">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                        <span><strong>SEARCH</strong></span>          
+                        </a>
+                    </div>
+            </div>  
+<div ng-show="myVar"> 
+<br/>
+  <table border="10" class="table table-bordered">
+    <tr ng-repeat="item in data1 | limitTo:1">
+      <th ng-repeat="(key, value) in item"> {{key | uppercase }}
+      </th>
+    </tr>
+    <tr ng-repeat="item in data1">
+      <td ng-repeat="(ky, val) in item">
+      
+        <span ng-if="ky != 'price'">{{val}}</span> 
+        <ul ng-if="ky == 'price'">
+          <li ng-repeat="(key,value) in item.price">{{key}} : {{value}}</li>
+        </ul>
+      </td>
+    </tr>
+ </table>  
+</div>
+ </form>
+</body>
+               
+
+
+
+
+
+
+
+
+
+
